@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة تحكم المسؤول – Deraya</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f0f4f8; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1rem; }
+        .login-wrapper { background: white; max-width: 400px; width: 100%; padding: 2.5rem 2rem; border-radius: 32px; box-shadow: 0 30px 60px -15px rgba(0,0,0,0.2); text-align: center; }
+        .login-wrapper h2 { color: #1a3a6b; margin-bottom: 0.5rem; }
+        .login-wrapper input { width: 100%; padding: 0.9rem 1.2rem; border: 2px solid #dce4ed; border-radius: 60px; font-size: 1rem; margin-bottom: 1rem; background: #fafcff; }
+        .login-wrapper input:focus { border-color: #1a3a6b; outline: none; }
+        .login-wrapper button { width: 100%; padding: 0.9rem; border: none; border-radius: 60px; background: linear-gradient(135deg, #1a3a6b, #2d6da8); color: white; font-weight: 700; font-size: 1.1rem; cursor: pointer; }
+        .login-wrapper button:hover { opacity: 0.9; }
+        .login-error { color: #b91c1c; font-size: 0.9rem; margin-top: 0.5rem; display: none; }
+        .dashboard { display: none; max-width: 1300px; width: 100%; background: white; border-radius: 32px; padding: 2rem 2.5rem; box-shadow: 0 25px 60px -12px rgba(0,0,0,0.25); }
+        .header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 2px solid #eef2f7; padding-bottom: 1.5rem; margin-bottom: 2rem; }
+        .logo-area { display: flex; align-items: center; gap: 1rem; }
+        .logo-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #1a3a6b, #2d6da8); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.4rem; }
+        .logo-text h1 { font-size: 1.6rem; color: #1a3a6b; }
+        .badge { background: #eef4ff; padding: 0.5rem 1.2rem; border-radius: 100px; font-weight: 600; font-size: 0.85rem; border: 1px solid #d6e2f0; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.2rem; margin-bottom: 2rem; }
+        .stat-card { background: #f8faff; border-radius: 20px; padding: 1.2rem 1.5rem; border: 1px solid #e9eef5; }
+        .stat-card .number { font-size: 2rem; font-weight: 700; color: #1a3a6b; }
+        .stat-card .label { font-size: 0.75rem; color: #6b7a8f; text-transform: uppercase; }
+        .table-wrap { overflow-x: auto; border-radius: 18px; border: 1px solid #e9eef5; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+        th { text-align: right; padding: 1rem 1.2rem; background: #f8faff; color: #1a3a6b; }
+        td { padding: 0.9rem 1.2rem; border-bottom: 1px solid #f0f4fa; }
+        .status-badge { display: inline-block; padding: 0.2rem 0.8rem; border-radius: 100px; font-size: 0.75rem; font-weight: 600; background: #e6f7e6; color: #1a7a3a; }
+        .status-badge.pending { background: #fff3e0; color: #b76a0a; }
+        .delete-btn { background: none; border: none; color: #b91c1c; cursor: pointer; font-size: 1.1rem; padding: 4px 8px; border-radius: 8px; }
+        .delete-btn:hover { background: #fee2e2; }
+        .empty-state { text-align: center; padding: 3rem 1rem; color: #6b7a8f; }
+        .logout-btn { background: none; border: none; color: #b91c1c; cursor: pointer; font-weight: 600; margin-top: 0.5rem; }
+        .footer-note { margin-top: 1.8rem; text-align: center; color: #8a9aaa; border-top: 1px solid #eef2f7; padding-top: 1.5rem; }
+        @media (max-width:700px) { .dashboard { padding: 1.2rem; } }
+    </style>
+</head>
+<body>
+    <div class="login-wrapper" id="loginWrapper">
+        <h2>🔐 لوحة المسؤول</h2>
+        <input type="text" id="adminUsername" placeholder="اسم المستخدم" />
+        <input type="password" id="adminPassword" placeholder="كلمة المرور" />
+        <button onclick="adminLogin()">دخول</button>
+        <div class="login-error" id="loginError">❌ اسم المستخدم أو كلمة المرور غير صحيحة</div>
+    </div>
+    <div class="dashboard" id="dashboardView">
+        <header class="header">
+            <div class="logo-area"><div class="logo-icon">📊</div><div class="logo-text"><h1>Deraya · قاعدة البيانات</h1><span>كلية الهندسة — جامعة المنصورة</span></div></div>
+            <div class="badge">🔒 مشفر · <span id="recordCount">0</span> سجلاً</div>
+        </header>
+        <div class="stats">
+            <div class="stat-card"><div class="number" id="totalUsers">0</div><div class="label">إجمالي المسجلين</div></div>
+            <div class="stat-card"><div class="number" id="todayUsers">0</div><div class="label">اليوم</div></div>
+            <div class="stat-card"><div class="number" id="activeUsers">0</div><div class="label">نشطاء</div></div>
+            <div class="stat-card"><div class="number" id="lastUpdate">—</div><div class="label">آخر تحديث</div></div>
+        </div>
+        <div class="table-wrap">
+            <table><thead><tr><th>#</th><th>الاسم</th><th>البريد</th><th>القسم</th><th>الحالة</th><th>الوقت</th><th>حذف</th></tr></thead><tbody id="tableBody"></tbody></table>
+        </div>
+        <div class="footer-note">⚡ بيانات مشفرة عبر JWT · <button class="logout-btn" onclick="adminLogout()">⏎ تسجيل الخروج</button></div>
+    </div>
+    <script>
+        const API_BASE = 'deraya-mans-edu-eg.up.railway.app'; // ⚠️ استبدل برابط الخادم
+        let authToken = null;
+
+        async function adminLogin() {
+            const username = document.getElementById('adminUsername').value.trim();
+            const password = document.getElementById('adminPassword').value.trim();
+            const errorEl = document.getElementById('loginError');
+            try {
+                const res = await fetch(`${API_BASE}/api/admin/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    authToken = data.token;
+                    localStorage.setItem('adminToken', authToken);
+                    errorEl.style.display = 'none';
+                    document.getElementById('loginWrapper').style.display = 'none';
+                    document.getElementById('dashboardView').style.display = 'block';
+                    fetchData();
+                } else {
+                    errorEl.style.display = 'block';
+                }
+            } catch (err) {
+                errorEl.textContent = '⚠️ تعذر الاتصال بالخادم';
+                errorEl.style.display = 'block';
+            }
+        }
+
+        function adminLogout() {
+            localStorage.removeItem('adminToken');
+            authToken = null;
+            document.getElementById('loginWrapper').style.display = 'block';
+            document.getElementById('dashboardView').style.display = 'none';
+        }
+
+        async function fetchData() {
+            if (!authToken) {
+                const token = localStorage.getItem('adminToken');
+                if (token) authToken = token;
+                else return;
+            }
+            try {
+                const res = await fetch(`${API_BASE}/api/admin/users`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                if (res.status === 401) {
+                    adminLogout();
+                    alert('انتهت صلاحية الجلسة، الرجاء تسجيل الدخول مجدداً');
+                    return;
+                }
+                const users = await res.json();
+                renderTable(users);
+            } catch (err) { console.error(err); }
+        }
+
+        function renderTable(users) {
+            const tbody = document.getElementById('tableBody');
+            document.getElementById('totalUsers').textContent = users.length;
+            document.getElementById('recordCount').textContent = users.length;
+            const today = new Date().toDateString();
+            document.getElementById('todayUsers').textContent = users.filter(u => new Date(u.timestamp).toDateString() === today).length;
+            document.getElementById('activeUsers').textContent = users.filter(u => u.status === 'active').length;
+            if(users.length) {
+                const sorted = [...users].sort((a,b) => b.timestamp - a.timestamp);
+                document.getElementById('lastUpdate').textContent = new Date(sorted[0].timestamp).toLocaleString();
+            }
+            if(!users.length) {
+                tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state">📭 لا توجد تسجيلات</div></td></tr>`;
+                return;
+            }
+            tbody.innerHTML = users.sort((a,b) => b.timestamp - a.timestamp).map((u, i) => {
+                const dateStr = new Date(u.timestamp).toLocaleString();
+                const cls = u.status === 'active' ? '' : 'pending';
+                const label = u.status === 'active' ? 'نشط' : 'معلق';
+                return `<tr><td>${i+1}</td><td><strong>${u.fullName}</strong></td><td>${u.email}</td><td>${u.department || '—'}</td><td><span class="status-badge ${cls}">${label}</span></td><td>${dateStr}</td><td><button class="delete-btn" data-id="${u.id}">✕</button></td></tr>`;
+            }).join('');
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.onclick = async function() {
+                    if(!confirm('حذف هذا السجل نهائياً؟')) return;
+                    const id = this.dataset.id;
+                    try {
+                        const res = await fetch(`${API_BASE}/api/admin/users/${id}`, {
+                            method: 'DELETE',
+                            headers: { 'Authorization': `Bearer ${authToken}` }
+                        });
+                        if (res.status === 401) { adminLogout(); alert('انتهت الجلسة'); return; }
+                        if (res.ok) fetchData();
+                        else alert('فشل الحذف');
+                    } catch (err) { alert('خطأ في الاتصال'); }
+                };
+            });
+        }
+
+        window.onload = function() {
+            const token = localStorage.getItem('adminToken');
+            if (token) {
+                authToken = token;
+                document.getElementById('loginWrapper').style.display = 'none';
+                document.getElementById('dashboardView').style.display = 'block';
+                fetchData();
+            }
+        };
+        setInterval(() => { if(authToken) fetchData(); }, 10000);
+    </script>
+</body>
+</html>
