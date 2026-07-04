@@ -10,18 +10,32 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    <!--    <link rel="stylesheet" href="/static/css/login.css" type="text/css" media="screen">-->
+    <!-- Block_new -->
+    <link rel="stylesheet" href="/static/new-css/bootstrap.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/static/new-css/login-new.css" type="text/css" media="screen" />
+    <!-- End_Block_New-->
+    <link rel="stylesheet" href="/static/plugins/uniform/default/uniform.default.css" type="text/css" media="screen" />
+    <!--<link rel="stylesheet" href="/static/plugins/validate/validationEngine.jquery.css?kkk" type="text/css"-->
+    <!--media="screen">-->
+    <!-- Block_new -->
+    <script type="text/javascript" src="/static/new-js/jquery2.min.js">
+    </script>
+    <script type="text/javascript" src="/static/new-js/bootstrap2.min.js">
+    </script>
+    <!-- End_Block_New-->
+    <script type="text/javascript" src="/static/js/captcha.js">
+    </script>
+    <!--    <link rel="stylesheet" type="text/css" media="screen,projection,print"-->
+    <!--          href="/static/plugins/jquery-ui-1.8.23.custom/css/cupertino/jquery-ui-1.8.23.custom.css"/>-->
+    <!-- Block_new -->
+    <link rel="stylesheet" type="text/css" media="screen,projection,print" href="/static/new-plugins/jquery-ui-1.13.1/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen,projection,print" href="/static/css/jquery.alerts.css" />
+    <!--[if lt IE 9]>
+    <script src="/static/js/html5shiv.js"></script>
 
-    <link rel="stylesheet" href="https://deraya.mans.edu.eg/static/new-css/bootstrap.min.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="https://deraya.mans.edu.eg/static/new-css/login-new.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="https://deraya.mans.edu.eg/static/plugins/uniform/default/uniform.default.css" type="text/css" media="screen" />
 
-    <script type="text/javascript" src="https://deraya.mans.edu.eg/static/new-js/jquery2.min.js"></script>
-    <script type="text/javascript" src="https://deraya.mans.edu.eg/static/new-js/bootstrap2.min.js"></script>
-    <script type="text/javascript" src="https://deraya.mans.edu.eg/static/js/captcha.js"></script>
-
-    <link rel="stylesheet" type="text/css" media="screen,projection,print" href="https://deraya.mans.edu.eg/static/new-plugins/jquery-ui-1.13.1/jquery-ui.min.css" />
-    <link rel="stylesheet" type="text/css" media="screen,projection,print" href="https://deraya.mans.edu.eg/static/css/jquery.alerts.css" />
-
+    <![endif]-->
     <style>
       .InputCorner {
             -moz-border: 3px;
@@ -32,22 +46,40 @@
             line-height: 1.5em;
         }
     </style>
-
-    <script src="https://deraya.mans.edu.eg/static/plugins/uniform/jquery.uniform.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://deraya.mans.edu.eg/static/plugins/validate/jquery.validationEngine.js?kkkk" type="text/javascript" charset="utf-8"></script>
-    <script src="https://deraya.mans.edu.eg/static/plugins/validate/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="https://deraya.mans.edu.eg/static/js/jquery/jquery.validate.js"></script>
-    <script type="text/javascript" src="https://deraya.mans.edu.eg/static/new-plugins/jquery-ui-1.13.1/jquery-ui.min.js"></script>
-
+    <script src="/static/plugins/uniform/jquery.uniform.min.js" type="text/javascript" charset="utf-8">
+    </script>
+    <script src="/static/plugins/validate/jquery.validationEngine.js?kkkk" type="text/javascript" charset="utf-8">
+    </script>
+    <script src="/static/plugins/validate/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8">
+    </script>
+    <script type="text/javascript" src="/static/js/jquery/jquery.validate.js">
+    </script>
+    <script type="text/javascript" src="/static/new-plugins/jquery-ui-1.13.1/jquery-ui.min.js">
+    </script>
   </head>
-
+  <!--<script type="text/javascript" src="/static/js/jquery/jquery-1.6.4.min.js"></script>-->
+  <!--<script type="text/javascript" src="/static/js/jquery/jquery.blockUI.js"></script>-->
+  <!--<script type="text/javascript" src="/static/js/jquery/jquery.alerts.js" charset="UTF-8"></script>-->
+  <!--<script type="text/javascript" src="/static/plugins/jquery-ui-1.8.23.custom/js/jquery-ui-1.8.23.custom.min.js"></script>-->
+  <!--<script type="text/javascript">-->
+  <!--    </script>-->
+  <!--</body>-->
   <body class="background-image">
     <div class="wrapper fadeInDown">
       <div id="formContent" style="opacity: 90%">
         <div class="fadeIn first">
           <p id="icon" class="university-name">Mansoura University</p>
         </div>
-
+        <!--
+      <div  class="titles" >
+            <p>كيفية الدخول على نظام ابن الهيثم</p>
+          <div class="linksLogin" dir="rtl">
+            <a target="_blank" href="https://www.youtube.com/watch?v=aTAnvagKM9A" >للطلاب</a>
+            <span class="dash">--</span>
+            <a target="_blank" href="https://www.youtube.com/watch?v=Z-gqxPaWOoQ" >لأعضاء هيئة التدريس</a>
+              </div>
+        </div>
+        -->
         <!-- Login Form -->
         <form id="employeesLoginFrm" onsubmit="Login();return false;">
           <input type="text" id="name" class="fadeIn second" name="username" placeholder="Username" />
@@ -55,169 +87,585 @@
           <div style="width:100%" class="optionsLogin">
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="usertype" id="usertype_0" value="1" checked="checked" />
-              <label class="form-check-label" for="usertype_0">System User</label>
+              <label class="form-check-label" for="usertype_0">
+                System User
+              </label>
             </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="usertype" id="usertype_2" value="3" />
-              <label class="form-check-label" for="usertype_2">Staff</label>
+              <label class="form-check-label" for="usertype_2">
+                Staff
+              </label>
             </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="usertype" id="usertype_1" value="2" />
-              <label class="form-check-label" for="usertype_1">Student</label>
+              <label class="form-check-label" for="usertype_1">
+                Student
+              </label>
             </div>
           </div>
           <div id="captcha_login" style="margin:auto;width:90%;padding: 0px 87px">
           </div>
           <input type="submit" value="Log In" id="login_btn" />
+          <!-- <B>السادة أعضاء هيئة التدريس وموظفو شئون الطلاب والطلاب...خدمات النظام متوقفة حاليا لاجراء بعض عمليات الصيانة الدورية
+              <br>
+              وستعود للعمل في أقرب وقت ممكن
+              </B>-->
           <div>
-            <a href="#" id="ForgetPassword2" onclick="ForgetPassword2();" style="color: #4195d8;">Forget Password ?</a>
+            <!--              <a href=# id="ForgetPassword" onclick="ForgetPassword();"    style='color: #4195d8;'> Forget Password ? </a>-->
+            <a href="#" id="ForgetPassword2" onclick="ForgetPassword2();" style="color: #4195d8;">            Forget Password ?
+</a>
           </div>
         </form>
-
         <div id="formFooter">
-          <a target="_blank" href="/static/System Manuel.pdf">الدليل الإرشادي للأخطاء الشائعة</a>
-          <span class="dash">--</span>
-          <a href="#" id="security_id">سياسة الخصوصية</a>
+          <a target="_blank" href="/static/System Manuel.pdf">          الدليل الإرشادي للأخطاء
+                    الشائعة
+</a>
+          <span class="dash">          --
+</span>
+          <a href="#" id="security_id">          سياسة الخصوصية
+</a>
         </div>
-
-        <div id="divContents"></div>
+        <div id="divContents">
+        </div>
         <div id="copy_right">
           Powerd by Ibn Alhaitham e-SIS software,
-          <a href="https://www.intlaqcit.com/" style="font-size: 13px">intlaqcit</a>
-          - Mansoura University
+          <a href="https://www.intlaqcit.com/" style="font-size: 13px">          intlaqcit
+</a>
+          -Mansoura University
         </div>
       </div>
     </div>
-
     <script>
       try{
         jAlert
     }catch(err) {
         jAlert = alert;
     }
-   var userType = '1',Lang ='E';
-    var studentsUserNames ='';
-    var studentsPasswords ='';
+   var userType = &#39;1&#39;,Lang =&#39;E&#39;;
+    var studentsUserNames =&#39;&#39;;
+    var studentsPasswords =&#39;&#39;;
         jQuery(document).ready(function () {
             getUniversityData();
             check_bug=false
 
-            $("input[name=usertype]:radio").click(function () {
+            // // binds form submission and fields to the validation engine
+            // if ($.browser.msie &amp;&amp; $.browser.version == 8) {
+            //     jQuery(&#34;#employeesLoginFrm&#34;).validationEngine();
+            // } else {
+            //     jQuery(&#34;#employeesLoginFrm&#34;).validationEngine({isOverflown: true, &#39;overflownDIV&#39;: &#39;body&#39;});
+            // }
+            // $(&#34;input:radio&#34;).uniform();
+            //if($.browser.mozilla){
+            //$(&#34;#employeesLoginFrm&#34;).draggable({containment: &#34;#form&#34;, scroll: false});
+            //}else{
+            //	$( &#34;#employeesLoginFrm&#34; ).draggable({ containment: &#34;body&#34; ,scroll: false });
+            //}
+
+            $(&#34;input[name=usertype]:radio&#34;).click(function () {
+
                 userType = $(this).val();
-                $("#ForgetPassword").show();
-                 $("#name").attr("placeholder",'Username');
-                 $("#password").attr("placeholder",'Password');
-                if($(this).val() == "2" ){
-                    if(studentsUserNames != ''){
-                        $("#name").attr("placeholder",studentsUserNames);
+                $(&#34;#ForgetPassword&#34;).show();
+                 $(&#34;#name&#34;).attr(&#34;placeholder&#34;,&#39;Username&#39;);
+                 $(&#34;#password&#34;).attr(&#34;placeholder&#34;,&#39;Password&#39;);
+                if($(this).val() == &#34;2&#34; ){
+                    if(studentsUserNames != &#39;&#39;){
+                        $(&#34;#name&#34;).attr(&#34;placeholder&#34;,studentsUserNames);
                     }
-                    if(studentsPasswords != ''){
-                        $("#password").attr("placeholder",studentsPasswords);
+                    if(studentsPasswords != &#39;&#39;){
+                        $(&#34;#password&#34;).attr(&#34;placeholder&#34;,studentsPasswords);
                     }
                 }
-            });
-        });
 
-    $.getScript("/static/js/index.js?num=" + new Date().getTime(), function () {
-        $.getScript("/static/js/general.js?num=" + new Date().getTime(), function () {
-                $.getScript("/static/js/sdmenu.js?num=" + new Date().getTime(), function () {
-                     $.getScript("/static/js/crypto-js.min.js?num=" + new Date().getTime(), function () {
+            });
+
+
+
+        });
+    $.getScript(&#34;/static/js/index.js?num=&#34; + new Date().getTime(), function () {
+        $.getScript(&#34;/static/js/general.js?num=&#34; + new Date().getTime(), function () {
+            //$.getScript(&#34;/static/js/words.js?num=&#34; + new Date().getTime(), function () {
+                $.getScript(&#34;/static/js/sdmenu.js?num=&#34; + new Date().getTime(), function () {
+                     $.getScript(&#34;/static/js/crypto-js.min.js?num=&#34; + new Date().getTime(), function () {
                         $(document).ready(function () {
-                           AdjustLoginForm();
+                           // LoadAppVariables();
+                            AdjustLoginForm();
+
                         });
                 });
             });
         });
     });
 
-    function ForgetPassword2() {
-        // الوظيفة الأصلية كما هي (مختصرة هنا)
-        alert('سيتم إرسال رابط استعادة كلمة المرور إلى بريدك الإلكتروني.');
-    }
+    function ForgetPassword() {
+        var str = &#34;&#34;;
+        var msgMailValidator = getName(&#39;ليست صيغة بريد الكتروني صحيحة |not a valid e-mail &#39;, Lang);
+        var msgIDValidator = getName(&#39;رقم قومى خاطئ|not a valid ID &#39;, Lang);
 
+        str += &#34;&lt;div id=&#39;DivForgetPassData&#39; style=&#39;padding: 5px 40px&#39;&gt;&#34;;
+        str += &#34;	&lt;form id=&#39;FormForgetPassword&#39; name=&#39;FormForgetPassword&#39; &gt;&#34;;
+        str += &#34;		&lt;table border=&#39;0&#39; style=&#39;border-collapse:collapse;width:100%;height:100%&#39;&gt;&#34;;
+        str += &#34;			&lt;tbody&gt;&#34;;
+        str += &#34;				&lt;tr style=&#39;line-height:2em;color:#045c97;&#39;&gt;&#34;;
+        // str += &#34;					&lt;td  style=&#39;width:25%&#39;&gt;&#34;;
+        // str += &#34;						&#34; + getName(&#34;الرقم القومى|National ID&#34;, &#34;E&#34;);
+        // str += &#34;					&lt;/td&gt;&#34;
+        str += &#34;					&lt;td style=&#39;vertical-align:bottom;&#39;&gt;&#34;;
+        str += &#34;						&lt;input id=&#39;NationalID&#39; name=&#39;NationalID&#39; class=&#39;InputCorner&#39; style=&#39;width:200px;&#39;  type=&#39;text&#39; placeholder=&#39;&#34;+ getName(&#34;الرقم القومى|National ID&#34;, &#34;E&#34;)+&#34;&#39; /&gt;&#34;;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;					&lt;td width=25% align=left&#39;&gt;&#34;;
+        str += &#34;						&lt;label for=&#39;NationalID&#39; generated=&#39;true&#39; class=&#39;error&#39; style=&#39;color:red;&#39;&gt;&lt;/label&gt;&#34;;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;				&lt;/tr&gt;&#34;;
+        str += &#34;				&lt;tr style=&#39;line-height:2em;color:#045c97;&#39;&gt;&#34;;
+        // str += &#34;					&lt;td width=&#39;25%&#39;&gt;&#34;;
+        // str += &#34;						&#34; + getName(&#34;البريد الإلكترونى| Email&#34;, &#34;E&#34;);
+        // str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;					&lt;td width=50% style=&#39;&#39;&gt;&#34;
+        str += &#34;						&lt;input id=studenteMailText name=studenteMailText class=&#39;InputCorner&#39; style=&#39;width:200px;&#39;  type=text style=&#39;width:90%;&#39; placeholder=&#39;&#34;+ getName(&#34;البريد الإلكترونى| Email&#34;, &#34;E&#34;)+&#34;&#39; /&gt;&#34;;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;					&lt;td width=25% align=left&gt;&#34;
+        str += &#34;						&lt;label for=&#39;studenteMailText&#39; generated=&#39;true&#39; class=&#39;error&#39; style=&#39;color:red;&#39;&gt;&lt;/label&gt;&#34;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;				&lt;/tr&gt;&#34;;
+        str += &#34;				&lt;tr style=&#39;line-height:2em;color:#045c97;&#39;&gt;&#34;;
+        // str += &#34;					&lt;td width=&#39;25%&#39;&gt;&#34;;
+        // str += &#34;						&#34; + getName(&#34;تأكيد الكلمة| Word Verification&#34;, &#34;E&#34;);
+        // str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;					&lt;td style=&#39;width:50%&#39;&gt;&#34;;
+        str += &#34;						&lt;div id=&#39;ReCaptchaDiv&#39; style=&#39;padding-top: .5em;&#39;&gt;&lt;/div&gt;&#34;;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;					&lt;td width=25% align=left&gt;&#34;
+
+
+
+        str += &#34;						&lt;label for=&#39;recaptcha_response_field&#39; generated=&#39;true&#39; class=&#39;error&#39; style=&#39;color:red;&#39;&gt;&lt;/label&gt;&#34;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;				&lt;/tr&gt;&#34;;
+        str += &#34;			&lt;/tbody&gt;&#34;;
+        str += &#34;		&lt;/table&gt;&#34;;
+        str += &#34;	&lt;/form&gt;&#34;;
+        str += &#34;&lt;/div&gt;&#34;;
+
+
+        if ($(&#34;#DivForgetPassData&#34;).length == 0) {
+            $(&#34;#employeesLoginFrm&#34;).append(str);
+            CreateRecaptcha();
+            $(&#34;#FormForgetPassword&#34;).validate({
+                rules: {
+                    NationalID: {
+                        required: true,
+                        digits: true
+                    },
+                    studenteMailText: {
+                        required: true,
+                        email: true
+                    },
+                    recaptcha_response_field: {
+                        required: true
+                    }
+                },
+                messages: {
+                    NationalID: {
+                        required: &#39;&amp;nbsp;&amp;nbsp;*&#39;,
+                        digits: ((Lang == &#34;A&#34;) ? &#34;مسموح بارقام فقط  &#34; : &#34;Only Numbers are allowed&#34;)
+                    },
+                    studenteMailText: {
+                        required: &#39;&amp;nbsp;&amp;nbsp;*&#39;,
+                        email: msgMailValidator
+                    },
+                    recaptcha_response_field: {
+                        required: &#39;&amp;nbsp;&amp;nbsp;*&#39;
+                    }
+                }
+            });
+        }
+
+        $(&#39;#DivForgetPassData&#39;).dialog({
+            modal: true,
+            autoOpen: true,
+            title: &#34;Send an email with username and password&#34;,
+            closeOnEscape: true,
+            zIndex: 3999,
+            // width: &#34;600&#34;,
+            height: &#34;auto&#34;,
+            resizable: true,
+            show: &#39;fade&#39;,
+            hide: &#39;fade&#39;,
+            buttons: [{
+                text: &#34;Send&#34;,
+                click: function () {
+                    var NationalID = $(&#34;#NationalID&#34;).val();
+                    var eMail = $(&#34;#studenteMailText&#34;).val();
+
+                    if ($(&#34;#FormForgetPassword&#34;).valid()) {
+
+                            condValid=true;
+                            if (NationalID.length==14){
+                                condValid=CheckNationalID(NationalID);
+                            }
+                        if (condValid) {
+
+                            var queryForm = {}
+                            queryForm[&#34;recaptcha_response_field&#34;] = $(&#34;#recaptcha_response_field&#34;).val();
+                            queryForm[&#34;recaptcha_key_field&#34;] = $(&#34;input[name=recaptcha_key_field]&#34;).val();
+                            var codeFlag = VerifyingAnswer(queryForm);
+
+                            if (codeFlag == &#34;true&#34;) {
+
+                                var Dict = {}
+                                Dict[&#34;NationalID&#34;] = NationalID;
+                                Dict[&#34;studenteMailText&#34;] = eMail;
+
+                                $.ajax({
+                                    url: &#34;/stuJCI&#34;,
+                                    data: {
+                                        param0: &#34;Mail.Mail&#34;,
+                                        param1: &#34;SendMail&#34;,
+                                        param2: NationalID,
+                                        param3: eMail,
+                                        param4: (userType ?userType:&#39;1&#39;)
+                                    },
+                                    type: &#34;post&#34;,
+                                    cache: false,
+                                    async: false,
+                                    success: function (d) {
+                                        var data = jQuery.parseJSON(d);
+                                        if (data){
+                                            var MSG, msg = &#39;&#39;;
+                                            var msgDict = {
+                                                &#34;Mail&#34;: getName(&#34;البريد الإلكترونى غير مسجل | Email address is not registerd on the system&#34;),
+                                                &#34;NoData&#34;: getName(&#34;بيانات الزائر غير مسجلة | Guest data Not found&#34;)
+                                            };
+
+                                            if (&#34;ErrorMsg&#34; in data) {
+                                                msg = msgDict[data.ErrorMsg];
+                                            }
+
+                                            if (data.MSG == &#39;success&#39;) {
+                                                MSG = (msg ? msg : getName(&#34;Message Sent Successfuly&#34;));
+                                            }
+                                            else {
+                                                MSG = (msg ? msg : getName(&#34;Message Not Sent&#34;));
+                                            }
+                                            $(&#34;#DivForgetPassData&#34;).dialog(&#34;close&#34;);
+                                            $(&#34;#DivForgetPassData&#34;).dialog(&#34;destroy&#34;).remove();
+                                            jAlert(MSG);
+                                        }
+                                    }
+                                });
+                            }
+                            else {
+                                var msgValidator = &#34;Code error&#34;;
+                                $(&#39;label[for=&#34;recaptcha_response_field&#34;]&#39;).html(msgValidator);
+                                $(&#39;label[for=&#34;recaptcha_response_field&#34;]&#39;).show();
+                            }
+                        }
+                        else {
+                            $(&#39;label[for=&#34;NationalID&#34;]&#39;).html(msgIDValidator);
+                            $(&#39;label[for=&#34;NationalID&#34;]&#39;).show();
+                        }
+                    }
+
+                }
+            }, {
+                text: &#34;Cancel&#34;,
+                click: function () {
+                    $(&#34;#DivForgetPassData&#34;).dialog(&#34;close&#34;);
+                    $(&#34;#DivForgetPassData&#34;).dialog(&#34;destroy&#34;).remove();
+                }
+            }],
+            close: function (event, ui) {
+                $(&#34;#DivForgetPassData&#34;).dialog(&#34;close&#34;);
+                $(&#34;#DivForgetPassData&#34;).remove();
+            }
+        });
+        $(&#34;#DivForgetPassData&#34;).dialog(&#34;open&#34;);
+
+        if($(&#34;input[name=usertype]:radio:checked&#34;).val()==&#34;2&#34;){
+         $(&#34;#NationalID&#34;).attr(&#34;placeholder&#34;,getName(&#34;الرقم القومى/الكود|National ID/Code&#34;, &#34;E&#34;));
+        }
+         else if($(&#34;input[name=usertype]:radio:checked&#34;).val()==&#34;3&#34;){
+         $(&#34;#NationalID&#34;).attr(&#34;placeholder&#34;,getName(&#34;الرقم القومى|National ID&#34;, &#34;E&#34;));
+        }
+    }
+  function ForgetPassword2() {
+        var str = &#34;&#34;;
+        var msgMailValidator = getName(&#39;ليست صيغة بريد الكتروني صحيحة |not a valid e-mail &#39;, Lang);
+        var msgIDValidator = getName(&#39;رقم قومى خاطئ|not a valid ID &#39;, Lang);
+
+        str += &#34;&lt;div id=&#39;DivForgetPassData&#39; style=&#39;padding: 5px 40px&#39;&gt;&#34;;
+        str += &#34;	&lt;form id=&#39;FormForgetPassword&#39; name=&#39;FormForgetPassword&#39; &gt;&#34;;
+        str += &#34;		&lt;table border=&#39;0&#39; style=&#39;border-collapse:collapse;width:100%;height:100%&#39;&gt;&#34;;
+        str += &#34;			&lt;tbody&gt;&#34;;
+        str += &#34;				&lt;tr style=&#39;line-height:2em;color:#045c97;&#39;&gt;&#34;;
+        // str += &#34;					&lt;td  style=&#39;width:25%&#39;&gt;&#34;;
+        // str += &#34;						&#34; + getName(&#34;الرقم القومى|National ID&#34;, &#34;E&#34;);
+        // str += &#34;					&lt;/td&gt;&#34;
+        str += &#34;					&lt;td style=&#39;vertical-align:bottom;&#39;&gt;&#34;;
+        str += &#34;						&lt;input id=&#39;NationalID&#39; name=&#39;NationalID&#39; class=&#39;InputCorner&#39; style=&#39;width:200px;&#39;  type=&#39;text&#39; placeholder=&#39;&#34;+ getName(&#34;الرقم القومى|National ID&#34;, &#34;E&#34;)+&#34;&#39; /&gt;&#34;;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;					&lt;td width=25% align=left&#39;&gt;&#34;;
+        str += &#34;						&lt;label for=&#39;NationalID&#39; generated=&#39;true&#39; class=&#39;error&#39; style=&#39;color:red;&#39;&gt;&lt;/label&gt;&#34;;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;				&lt;/tr&gt;&#34;;
+        str += &#34;				&lt;tr style=&#39;line-height:2em;color:#045c97;&#39;&gt;&#34;;
+        // str += &#34;					&lt;td width=&#39;25%&#39;&gt;&#34;;
+        // str += &#34;						&#34; + getName(&#34;البريد الإلكترونى| Email&#34;, &#34;E&#34;);
+        // str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;					&lt;td width=50% style=&#39;&#39;&gt;&#34;
+        str += &#34;						&lt;input id=studenteMailText name=studenteMailText class=&#39;InputCorner&#39; style=&#39;width:200px;&#39;  type=text style=&#39;width:90%;&#39; placeholder=&#39;&#34;+ getName(&#34;البريد الإلكترونى| Email&#34;, &#34;E&#34;)+&#34;&#39; /&gt;&#34;;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;					&lt;td width=25% align=left&gt;&#34;
+        str += &#34;						&lt;label for=&#39;studenteMailText&#39; generated=&#39;true&#39; class=&#39;error&#39; style=&#39;color:red;&#39;&gt;&lt;/label&gt;&#34;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;				&lt;/tr&gt;&#34;;
+        str += &#34;				&lt;tr style=&#39;line-height:2em;color:#045c97;&#39;&gt;&#34;;
+        // str += &#34;					&lt;td width=&#39;25%&#39;&gt;&#34;;
+        // str += &#34;						&#34; + getName(&#34;تأكيد الكلمة| Word Verification&#34;, &#34;E&#34;);
+        // str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;					&lt;td style=&#39;width:50%&#39;&gt;&#34;;
+        str += &#34;						&lt;div id=&#39;ReCaptchaDiv&#39; style=&#39;padding-top: .5em;&#39;&gt;&lt;/div&gt;&#34;;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;					&lt;td width=25% align=left&gt;&#34;
+
+
+
+        str += &#34;						&lt;label for=&#39;recaptcha_response_field&#39; generated=&#39;true&#39; class=&#39;error&#39; style=&#39;color:red;&#39;&gt;&lt;/label&gt;&#34;
+        str += &#34;					&lt;/td&gt;&#34;;
+        str += &#34;				&lt;/tr&gt;&#34;;
+        str += &#34;			&lt;/tbody&gt;&#34;;
+        str += &#34;		&lt;/table&gt;&#34;;
+        str += &#34;	&lt;/form&gt;&#34;;
+        str += &#34;&lt;/div&gt;&#34;;
+
+
+        if ($(&#34;#DivForgetPassData&#34;).length == 0) {
+            $(&#34;#employeesLoginFrm&#34;).append(str);
+            CreateRecaptcha();
+            $(&#34;#FormForgetPassword&#34;).validate({
+                rules: {
+                    NationalID: {
+                        required: true,
+                        digits: true
+                    },
+                    studenteMailText: {
+                        required: true,
+                        email: true
+                    },
+                    recaptcha_response_field: {
+                        required: true
+                    }
+                },
+                messages: {
+                    NationalID: {
+                        required: &#39;&amp;nbsp;&amp;nbsp;*&#39;,
+                        digits: ((Lang == &#34;A&#34;) ? &#34;مسموح بارقام فقط  &#34; : &#34;Only Numbers are allowed&#34;)
+                    },
+                    studenteMailText: {
+                        required: &#39;&amp;nbsp;&amp;nbsp;*&#39;,
+                        email: msgMailValidator
+                    },
+                    recaptcha_response_field: {
+                        required: &#39;&amp;nbsp;&amp;nbsp;*&#39;
+                    }
+                }
+            });
+        }
+
+        $(&#39;#DivForgetPassData&#39;).dialog({
+            modal: true,
+            autoOpen: true,
+            title: &#34;Send an email with username and password&#34;,
+            closeOnEscape: true,
+            zIndex: 3999,
+            // width: &#34;600&#34;,
+            height: &#34;auto&#34;,
+            resizable: true,
+            show: &#39;fade&#39;,
+            hide: &#39;fade&#39;,
+            buttons: [{
+                text: &#34;Send&#34;,
+                click: function () {
+                    var NationalID = $(&#34;#NationalID&#34;).val();
+                    var eMail = $(&#34;#studenteMailText&#34;).val();
+
+                    if ($(&#34;#FormForgetPassword&#34;).valid()) {
+
+                            condValid=true;
+                            if (NationalID.length==14){
+                                condValid=CheckNationalID(NationalID);
+                            }
+                        if (condValid) {
+
+                            var queryForm = {}
+                            queryForm[&#34;recaptcha_response_field&#34;] = $(&#34;#recaptcha_response_field&#34;).val();
+                            queryForm[&#34;recaptcha_key_field&#34;] = $(&#34;input[name=recaptcha_key_field]&#34;).val();
+                            var codeFlag = VerifyingAnswer(queryForm);
+
+                            if (codeFlag == &#34;true&#34;) {
+
+                                var Dict = {}
+                                Dict[&#34;NationalID&#34;] = NationalID;
+                                Dict[&#34;studenteMailText&#34;] = eMail;
+
+                                $.ajax({
+                                    url: &#34;/stuJCI&#34;,
+                                    data: {
+                                        param0: &#34;Mail.Mail&#34;,
+                                        param1: &#34;SendMailOTP&#34;,
+                                        param2: NationalID,
+                                        param3: eMail,
+                                        param4: (userType ?userType:&#39;1&#39;)
+                                    },
+                                    type: &#34;post&#34;,
+                                    cache: false,
+                                    async: false,
+                                    success: function (d) {
+                                        var data = jQuery.parseJSON(d);
+                                        if (data){
+                                            var MSG, msg = &#39;&#39;;
+                                            var msgDict = {
+                                                &#34;Mail&#34;: getName(&#34;البريد الإلكترونى غير مسجل | Email address is not registerd on the system&#34;),
+                                                &#34;NoData&#34;: getName(&#34;بيانات الزائر غير مسجلة | Guest data Not found&#34;)
+                                            };
+
+                                            if (&#34;ErrorMsg&#34; in data) {
+                                                msg = msgDict[data.ErrorMsg];
+                                            }
+
+                                            if (data.MSG == &#39;success&#39;) {
+                                                MSG = (msg ? msg : getName(&#34;Message Sent Successfuly&#34;));
+                                            }
+                                            else {
+                                                MSG = (msg ? msg : getName(&#34;Message Not Sent&#34;));
+                                            }
+                                            $(&#34;#DivForgetPassData&#34;).dialog(&#34;close&#34;);
+                                            $(&#34;#DivForgetPassData&#34;).dialog(&#34;destroy&#34;).remove();
+                                            jAlert(MSG);
+                                        }
+                                    }
+                                });
+                            }
+                            else {
+                                var msgValidator = &#34;Code error&#34;;
+                                $(&#39;label[for=&#34;recaptcha_response_field&#34;]&#39;).html(msgValidator);
+                                $(&#39;label[for=&#34;recaptcha_response_field&#34;]&#39;).show();
+                            }
+                        }
+                        else {
+                            $(&#39;label[for=&#34;NationalID&#34;]&#39;).html(msgIDValidator);
+                            $(&#39;label[for=&#34;NationalID&#34;]&#39;).show();
+                        }
+                    }
+
+                }
+            }, {
+                text: &#34;Cancel&#34;,
+                click: function () {
+                    $(&#34;#DivForgetPassData&#34;).dialog(&#34;close&#34;);
+                    $(&#34;#DivForgetPassData&#34;).dialog(&#34;destroy&#34;).remove();
+                }
+            }],
+            close: function (event, ui) {
+                $(&#34;#DivForgetPassData&#34;).dialog(&#34;close&#34;);
+                $(&#34;#DivForgetPassData&#34;).remove();
+            }
+        });
+        $(&#34;#DivForgetPassData&#34;).dialog(&#34;open&#34;);
+
+        if($(&#34;input[name=usertype]:radio:checked&#34;).val()==&#34;2&#34;){
+         $(&#34;#NationalID&#34;).attr(&#34;placeholder&#34;,getName(&#34;الرقم القومى/الكود|National ID/Code&#34;, &#34;E&#34;));
+        }
+         else if($(&#34;input[name=usertype]:radio:checked&#34;).val()==&#34;3&#34;){
+         $(&#34;#NationalID&#34;).attr(&#34;placeholder&#34;,getName(&#34;الرقم القومى|National ID&#34;, &#34;E&#34;));
+        }
+    }
     function AdjustLoginForm() {
-        $("#name").focus();
+        $(&#34;#name&#34;).focus();
         var h = ($(window).height() - 228) / 2;
         var w = ($(window).width() - 375) / 2;
-        $('#employeesLoginFrm').css({'top': h, 'left': w});
-        $('#form').css({width: ($(window).width()), height: $(window).height()});
-        $('#form').show();
-        $('#employeesLoginFrm').submit(function (e) {
+        $(&#39;#employeesLoginFrm&#39;).css({&#39;top&#39;: h, &#39;left&#39;: w});
+        $(&#39;#form&#39;).css({width: ($(window).width()), height: $(window).height()});
+        $(&#39;#form&#39;).show();
+        $(&#39;#employeesLoginFrm&#39;).submit(function (e) {
             e.preventDefault();
         });
     }
-
     $(document).ready(function () {
-        $("#security_id").click(function () {
-            $("#divContents").html('<div id="RDialogDiv"></div>');
-            $("#RDialogDiv").load('security.html');
-            $('#RDialogDiv').dialog({
+
+
+              $(&#34;#security_id&#34;).click(function () {
+
+            $(&#34;#divContents&#34;).html(&#39;&lt;div id=&#34;RDialogDiv&#34; &gt;&lt;/div&gt;&#39;);
+            $(&#34;#RDialogDiv&#34;).load(&#39;security.html&#39;);
+            $(&#39;#RDialogDiv&#39;).dialog({
                 modal: true,
                 autoOpen: true,
-                title: 'سياسة الخصوصية وتأمين البيانات',
+                title: getName(&#39;سياسة الخصوصية وتأمين البيانات&#39;),
                 closeOnEscape: true,
                 zIndex: 3999,
                 width: 750,
                 height: 350,
                 resizable: true,
-                show: 'fade',
-                hide: 'fade',
+                show: &#39;fade&#39;,
+                hide: &#39;fade&#39;,
                 open: function (event, ui) {
-                    $(this).parent().css('top', 0);
+                    $(this).parent().css(&#39;top&#39;, 0);
                 },
                 buttons: {
-                    'استمرار': function () {
-                        $(this).dialog("close");
-                        $("#RDialogDiv").remove();
+                    &#39;استمرار&#39;: function () {
+                        $(this).dialog(&#34;close&#34;);
+                        $(&#34;#RDialogDiv&#34;).remove();
+
+
                     }
                 }
             });
         })
     });
-
     function getUniversityData() {
         $.ajax({
-            url: "/general",
-            type: "post",
+            url: &#34;/general&#34;,
+            type: &#34;post&#34;,
             cache: false,
             async: true,
             data: {
-                index: "current_university"
+                index: &#34;current_university&#34;
             },
             beforeSend: function () {
             }, success: function (d) {
                 var data = jQuery.parseJSON(d);
-                var university = data['university'];
-                var backgroundImageUrl = 'url(' + data['backgroundImageUrl'] + ')';
-                 studentsUserNames = data['studentsUserNames'];
-                 studentsPasswords = data['studentsPasswords'];
-                if(studentsUserNames != ''){
-                    $("#studentsHelp").html("username : "+studentsUserNames+"<br>password : "+studentsPasswords);
+                var university = data[&#39;university&#39;], backgroundImageUrl = &#39;url(&#39; + data[&#39;backgroundImageUrl&#39;] + &#39;)&#39;;
+                 studentsUserNames = data[&#39;studentsUserNames&#39;];
+                 studentsPasswords = data[&#39;studentsPasswords&#39;];
+                if(studentsUserNames != &#39;&#39;){
+                    $(&#34;#studentsHelp&#34;).html(&#34;username : &#34;+studentsUserNames+&#34;&lt;br&gt;password : &#34;+studentsPasswords);
                 }
-                if(university=="Mansoura National University"){
-                     $(".university-name").html("<div align='center'><img src='/static/images/ahliaLogo.PNG' style=\"width:100px;height:100px\"/></div>");
+                if(university==&#34;Mansoura National University&#34;){
+                     $(&#34;.university-name&#34;).html(&#34;&lt;div align=&#39;center&#39;&gt;&lt;img src=&#39;/static/images/ahliaLogo.PNG&#39; style=\&#34;width:100px;height:100px\&#34;/&gt;&lt;/div&gt;&#34;);
                 }
                 else{
-                    $(".university-name").html(university);
+                    $(&#34;.university-name&#34;).html(university);
                 }
-                $("#title").text(university);
+                // $(&#34;.university-name&#34;).html(university);
+                $(&#34;#title&#34;).text(university);
                 const connectionType  = getConnectionType();
-                if (['3g' ,'4g'].indexOf(connectionType) > -1){
-                  $('body').css('background-image', backgroundImageUrl);
+                if ([&#39;3g&#39; ,&#39;4g&#39;].indexOf(connectionType) &gt; -1){
+                  $(&#39;body&#39;).css(&#39;background-image&#39;, backgroundImageUrl);
                 }
             }
         });
     }
 
     function getConnectionType() {
-        'use strict';
-        let connectionType = 'not supported';
-        if ('connection' in navigator) {
+        &#39;use strict&#39;;
+        let connectionType = &#39;not supported&#39;;
+        if (&#39;connection&#39; in navigator) {
             connectionType = navigator.connection.effectiveType;
         }
         return connectionType;
     }
     </script>
-
   </body>
 </html>
