@@ -1,223 +1,197 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
-    <title id="title">Mansoura University</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    
-    <link rel="stylesheet" href="/static/new-css/bootstrap.min.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="/static/new-css/login-new.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="/static/plugins/uniform/default/uniform.default.css" type="text/css" media="screen" />
-    
-    <script type="text/javascript" src="/static/new-js/jquery2.min.js"></script>
-    <script type="text/javascript" src="/static/new-js/bootstrap2.min.js"></script>
-    <script type="text/javascript" src="/static/js/captcha.js"></script>
-    
-    <link rel="stylesheet" type="text/css" media="screen,projection,print" href="/static/new-plugins/jquery-ui-1.13.1/jquery-ui.min.css" />
-    <link rel="stylesheet" type="text/css" media="screen,projection,print" href="/static/css/jquery.alerts.css" />
-    
+    <title>Deraya University</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      .InputCorner {
-        -moz-border: 3px;
-        -webkit-border-radius: 3px;
-        -khtml-border-radius: 3px;
-        border-radius: 3px;
-        border: 1px solid #aed0ea;
-        line-height: 1.5em;
-      }
-    </style>
-    
-    <script src="/static/plugins/uniform/jquery.uniform.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/static/plugins/validate/jquery.validationEngine.js?kkkk" type="text/javascript" charset="utf-8"></script>
-    <script src="/static/plugins/validate/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" src="/static/js/jquery/jquery.validate.js"></script>
-    <script type="text/javascript" src="/static/new-plugins/jquery-ui-1.13.1/jquery-ui.min.js"></script>
-  </head>
-  
-  <body class="background-image">
-    <div class="wrapper fadeInDown">
-      <div id="formContent" style="opacity: 90%">
-        <div class="fadeIn first">
-          <p id="icon" class="university-name">Mansoura University</p>
-        </div>
-        
-        <form id="employeesLoginFrm" onsubmit="Login();return false;">
-          <input type="text" id="name" class="fadeIn second" name="username" placeholder="Username" />
-          <input type="password" id="password" class="fadeIn third" name="pass" placeholder="Password" />
-          
-          <div style="width:100%" class="optionsLogin">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="usertype" id="usertype_0" value="1" checked="checked" />
-              <label class="form-check-label" for="usertype_0">System User</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="usertype" id="usertype_2" value="3" />
-              <label class="form-check-label" for="usertype_2">Staff</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="usertype" id="usertype_1" value="2" />
-              <label class="form-check-label" for="usertype_1">Student</label>
-            </div>
-          </div>
-          
-          <div id="captcha_login" style="margin:auto;width:90%;padding: 0px 87px"></div>
-          
-          <input type="submit" value="Log In" id="login_btn" />
-          
-          <div>
-            <a href="#" id="ForgetPassword2" onclick="ForgetPassword2();" style="color: #4195d8;">Forget Password ?</a>
-          </div>
-        </form>
-        
-        <div id="formFooter">
-          <a target="_blank" href="/static/System Manuel.pdf">الدليل الإرشادي للأخطاء الشائعة</a>
-          <span class="dash">--</span>
-          <a href="#" id="security_id">سياسة الخصوصية</a>
-        </div>
-        
-        <div id="divContents"></div>
-        <div id="copy_right">
-          Powerd by Ibn Alhaitham e-SIS software,
-          <a href="https://www.intlaqcit.com/" style="font-size: 13px">intlaqcit</a>
-          - Mansoura University
-        </div>
-      </div>
-    </div>
-    
-    <script>
-      try{
-        jAlert
-      }catch(err) {
-        jAlert = alert;
-      }
-      
-      var userType = '1', Lang = 'E';
-      var studentsUserNames = '';
-      var studentsPasswords = '';
-      
-      jQuery(document).ready(function () {
-        getUniversityData();
-        check_bug=false;
-        
-        $("input[name=usertype]:radio").click(function () {
-          userType = $(this).val();
-          $("#ForgetPassword").show();
-          $("#name").attr("placeholder",'Username');
-          $("#password").attr("placeholder",'Password');
-          if($(this).val() == "2"){
-            if(studentsUserNames != ''){
-              $("#name").attr("placeholder",studentsUserNames);
-            }
-            if(studentsPasswords != ''){
-              $("#password").attr("placeholder",studentsPasswords);
-            }
-          }
-        });
-      });
-      
-      $.getScript("/static/js/index.js?num=" + new Date().getTime(), function () {
-        $.getScript("/static/js/general.js?num=" + new Date().getTime(), function () {
-          $.getScript("/static/js/sdmenu.js?num=" + new Date().getTime(), function () {
-            $.getScript("/static/js/crypto-js.min.js?num=" + new Date().getTime(), function () {
-              $(document).ready(function () {
-                AdjustLoginForm();
-              });
-            });
-          });
-        });
-      });
-      
-      function ForgetPassword2() {
-        alert('سيتم إرسال رابط استعادة كلمة المرور إلى بريدك الإلكتروني.');
-      }
-      
-      function AdjustLoginForm() {
-        $("#name").focus();
-        var h = ($(window).height() - 228) / 2;
-        var w = ($(window).width() - 375) / 2;
-        $('#employeesLoginFrm').css({'top': h, 'left': w});
-        $('#form').css({width: ($(window).width()), height: $(window).height()});
-        $('#form').show();
-        $('#employeesLoginFrm').submit(function (e) {
-          e.preventDefault();
-        });
-      }
-      
-      $(document).ready(function () {
-        $("#security_id").click(function () {
-          $("#divContents").html('<div id="RDialogDiv"></div>');
-          $("#RDialogDiv").load('security.html');
-          $('#RDialogDiv').dialog({
-            modal: true,
-            autoOpen: true,
-            title: 'سياسة الخصوصية وتأمين البيانات',
-            closeOnEscape: true,
-            zIndex: 3999,
-            width: 750,
-            height: 350,
-            resizable: true,
-            show: 'fade',
-            hide: 'fade',
-            open: function (event, ui) {
-              $(this).parent().css('top', 0);
-            },
-            buttons: {
-              'استمرار': function () {
-                $(this).dialog("close");
-                $("#RDialogDiv").remove();
-              }
-            }
-          });
-        });
-      });
-      
-      function getUniversityData() {
-        $.ajax({
-          url: "/general",
-          type: "post",
-          cache: false,
-          async: true,
-          data: {
-            index: "current_university"
-          },
-          beforeSend: function () {},
-          success: function (d) {
-            var data = jQuery.parseJSON(d);
-            var university = data['university'];
-            var backgroundImageUrl = 'url(' + data['backgroundImageUrl'] + ')';
-            studentsUserNames = data['studentsUserNames'];
-            studentsPasswords = data['studentsPasswords'];
-            if(studentsUserNames != ''){
-              $("#studentsHelp").html("username : "+studentsUserNames+"<br>password : "+studentsPasswords);
-            }
-            if(university=="Mansoura National University"){
-              $(".university-name").html("<div align='center'><img src='/static/images/ahliaLogo.PNG' style=\"width:100px;height:100px\"/></div>");
-            }
-            else{
-              $(".university-name").html(university);
-            }
-            $("#title").text(university);
-            const connectionType = getConnectionType();
-            if (['3g','4g'].indexOf(connectionType) > -1){
-              $('body').css('background-image', backgroundImageUrl);
-            }
-          }
-        });
-      }
-      
-      function getConnectionType() {
-        'use strict';
-        let connectionType = 'not supported';
-        if ('connection' in navigator) {
-          connectionType = navigator.connection.effectiveType;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        return connectionType;
-      }
-    </script>
-  </body>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #e8edf3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background: #ffffff;
+            padding: 40px 35px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a2a4a;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #d0d7e2;
+            border-radius: 6px;
+            font-size: 15px;
+            background: #f8faff;
+            transition: 0.2s;
+            outline: none;
+        }
+
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            border-color: #1a73e8;
+            background: #ffffff;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 10px 0 20px;
+            font-size: 14px;
+            flex-wrap: wrap;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #1e2a3a;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .options input[type="radio"] {
+            accent-color: #1a73e8;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .login-btn:hover {
+            background: #1557b0;
+        }
+
+        .forgot-link {
+            display: block;
+            margin-top: 15px;
+            color: #1a73e8;
+            font-size: 14px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #4a5a6a;
+            border-top: 1px solid #e8edf3;
+            padding-top: 15px;
+        }
+
+        .footer-links a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links .dash {
+            margin: 0 6px;
+            color: #8a9aaa;
+        }
+
+        .powered {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #6b7a8f;
+        }
+
+        .powered a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .powered a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Deraya University</h2>
+
+        <form onsubmit="alert('تم تسجيل الدخول'); return false;">
+            <input type="text" placeholder="Username" required />
+            <input type="password" placeholder="Password" required />
+
+            <div class="options">
+                <label>
+                    <input type="radio" name="userType" checked /> System User
+                </label>
+                <label>
+                    <input type="radio" name="userType" /> Staff
+                </label>
+                <label>
+                    <input type="radio" name="userType" /> Student
+                </label>
+            </div>
+
+            <button type="submit" class="login-btn">LOG IN</button>
+
+            <a href="#" class="forgot-link">Forget Password ?</a>
+        </form>
+
+        <div class="footer-links">
+            <a href="#">سياسة الخصوصية</a>
+            <span class="dash">--</span>
+            <a href="#">الدليل الإرشادي للأخطاء الشائعة</a>
+        </div>
+
+        <div class="powered">
+            Powered by Ibn Alhaitham e-SIS software,
+            <a href="https://www.intlaqcit.com/">intlaqcit</a>
+            - Mansoura University
+        </div>
+    </div>
+
+</body>
 </html>
